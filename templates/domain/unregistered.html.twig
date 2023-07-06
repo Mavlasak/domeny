@@ -1,0 +1,24 @@
+<table>
+    <thead>
+    <tr>
+        <th>Název domény</th>
+        <th>Délka</th>
+        <th>Zkontrolováno</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for domain in unregisteredDomains %}
+        <tr>
+            <td>
+                {{ domain.name }}.{{ constant('App\\Entity\\Domain::FIRST_ORDER_DOMAIN_CZ') }}
+            </td>
+            <td>
+                {{ domain.length }}
+            </td>
+            <td>
+                {{ domain.created | date('j.n.Y H:i:s') }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
